@@ -1,6 +1,10 @@
 <template>
   <div>
+    <nav id="navigation">
+      <NavBar :icon-src="NavBar.icon" />
+    </nav>
     <nuxt />
+    <div id="footer">footer</div>
   </div>
 </template>
 
@@ -53,3 +57,19 @@ html {
   background-color: #35495e;
 }
 </style>
+<script>
+import NavBar from '@/components/NavBar.vue'
+
+export default {
+  components: {
+    NavBar
+  },
+  data() {
+    return {
+      NavBar: {
+        icon: `https://bit.ly/3cDAJ94`
+      }
+    }
+  }
+}
+</script>
