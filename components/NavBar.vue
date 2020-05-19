@@ -19,22 +19,14 @@
               Search
             </b-button>
           </b-nav-form>
-
-          <b-nav-item-dropdown text="Lang" right>
-            <b-dropdown-item href="#">EN</b-dropdown-item>
-            <b-dropdown-item href="#">ES</b-dropdown-item>
-            <b-dropdown-item href="#">RU</b-dropdown-item>
-            <b-dropdown-item href="#">FA</b-dropdown-item>
-          </b-nav-item-dropdown>
-
-          <b-nav-item-dropdown right>
-            <!-- Using 'button-content' slot -->
-            <template v-slot:button-content>
-              <em>User</em>
-            </template>
-            <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-          </b-nav-item-dropdown>
+          <b-nav-item href="#">Register</b-nav-item>
+          <b-nav-item v-b-modal.modal-1>Login</b-nav-item>
+          <Modal
+            :modal-id="'modal-1'"
+            :primary-botton-name="'Login'"
+            :primeray-link="'/example.com'"
+          />
+          <b-nav-item href="#">terms of services</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -42,7 +34,12 @@
 </template>
 
 <script>
+import Modal from '@/components/homescreen/Modal.vue'
+
 export default {
+  components: {
+    Modal
+  },
   props: {
     iconSrc: {
       type: String,
